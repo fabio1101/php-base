@@ -1,0 +1,5 @@
+@charset "UTF-8";
+#header{padding-top:55px;}
+body{background-color:lightgray;}
+.navbar-inverse{background-color:#0B4D76;}
+a{cursor: pointer;}

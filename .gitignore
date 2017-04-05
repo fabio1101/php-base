@@ -1,0 +1,6 @@
+.settings
+.settings/
+.settings/*
+sftp-config.json
+public/Logger.txt
+
