@@ -1,25 +1,25 @@
 <?php
 
-use CORE\CustomCode;
-use MVC\Controller;
-use inner\IndexClass;
-
-class Index extends Controller{
-
-    private $index;
-
-    function __construct() {
+class IndexController extends Core_Controller
+{
+    /**
+     * Undocumented function
+     */
+    function __construct()
+    {
+        // Call the parent constructor
         parent::__construct();
-        $this->index = new IndexClass();
-        $this->content['SECTION']    = 'Inicio';
+
+        // Set default Section name
+        $this->view->SECTION = 'Home';
     }
 
+    function IndexAction(): void
+    {
+        // Build the login box code and set it to the content placeholder
+        $this->view->CONTENT = '<hr>';
 
-    function IndexAction(){
-        $this->content['HEADERS'] = '';
-        $this->content['SECTION'] = '';
-        $this->content['CONTENT'] = 'THE CODE!';
-        $this->content['MENU'] = $this->menu->printMenu();
-        $this->view->Render($this->content, 'layout');
+        // Render the view with the info
+        $this->view->render();
     }
 }

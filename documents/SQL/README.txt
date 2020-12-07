@@ -1,1 +1,1 @@
-Folder to set SQL documetns with DB Updates
+Folder to set SQL documents with DB Updates

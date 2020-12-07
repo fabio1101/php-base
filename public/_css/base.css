@@ -1,0 +1,87 @@
+@charset "UTF-8";
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: #f8f8f8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+.separator {
+    margin-bottom: 15px;
+}
+
+.body {
+    margin-top: 10px;
+    padding-left: 30px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: #17a2b8;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.ui-hide {
+    display: none;
+}
+
+
+/* Order colors */
+
+.order-bg-red {
+    background-color: red;
+    color: white;
+}
+
+.order-bg-blue {
+    background-color: blue;
+    color: white;
+}
+
+.order-bg-green {
+    background-color: green;
+    color: white;
+}
+
+.order-bg-black {
+    background-color: black;
+    color: white;
+}
+
+.order-bg-brown {
+    background-color: brown;
+    color: white;
+}
+
+.order-red {
+    color: red;
+}
+
+.order-blue {
+    color: blue;
+}
+
+.order-green {
+    color: green;
+}
+
+.order-black {
+    color: black;
+}
+
+.order-brown {
+    color: brown;
+}

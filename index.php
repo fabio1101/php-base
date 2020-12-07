@@ -1,37 +1,34 @@
 <?php
-/**********************************************/
+// Get the environment we are working on (dev | prod)
+define('CURRENT_HOST', getenv('PHP_ENVIRONMENT'));
+define('EXEC_TYPE', 'WEB');
+
 // Include basic Libraries
 include_once('config/Defines.php');
-include_once('libs/mvc/Bootstrap.php');
-//include_once('libs/core/Customcode.php');
-include_once('libs/Autoload.php');
+include_once('application/swift-mailer/lib/swift_required.php');
+require('application/smarty/Smarty.class.php');
+include_once('application/Autoload.php');
+
 // Include 3rParty Libraries
-/**********************************************/
-require_once 'libs/dompdf/dompdf_config.inc.php';
 
 // PHP definitions
 date_default_timezone_set(APP_TIMEZONE);
+ini_set('display_errors', APP_DEBUG);
 
-$MyLibs = array( 'MVC' 			=> 'libs/mvc',
- 		 		 'CORE'			=> 'libs/core',
-				 'model'		=> 'models',
-				 'inner'		=> 'libs/inner');
-foreach( $MyLibs as $key => $value ){
-	 // echo $value .'==>'.PHP_EOL;
-		new Autoload( $value );	
-}
-unset($MyLibs);
-
+// Init bootstrap
 try {
-    $bootstrap = new MVC\Bootstrap();
-    $bootstrap->setPathRoot( @getcwd() . '/' ); 
-    $bootstrap->setControllerDefault( __DEFAULT_CONTROLLER__ );
+
+    // Build bootstrap and call controller/action
+    $bootstrap = new Core_Bootstrap();
     $bootstrap->init();
-} catch (\Exception $e) {
-    @file_put_contents(APP_PATH.'/'.APP_PUBLIC.'/'.APP_LOGFILE, 
-        date('Ymd_his') . ' - ' . $e->getMessage() . ' - ' . $e->getFile() . ' - ' . $e->getLine(). PHP_EOL, FILE_APPEND);
-    die( (APP_DEBUG) 
-        ? '<pre>' . $e->getMessage() . ' - ' . $e->getFile() . ' - ' . $e->getLine(). '</pre>'
-        :'System Error: please contact support');
+
+} catch (Exception $e) {
+
+    // Log values to default logger file (APP_LOGFILE)
+    Core_Logger::log($e);
+
+    // Stop the app and write a message. If APP_DEBUG is true will write the error, if not will write Error msg.
+    die((APP_DEBUG)?
+        '<pre>'.$e->getMessage().' - '.$e->getFile().' - '.$e->getLine().'</pre>':
+        '<h1>System Error: please contact support</h1>');
 }
- /**********************************************/
