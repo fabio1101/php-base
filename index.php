@@ -4,25 +4,23 @@ define('CURRENT_HOST', getenv('PHP_ENVIRONMENT'));
 define('EXEC_TYPE', 'WEB');
 
 // Include basic Libraries
-include_once('config/Defines.php');
-include_once('application/swift-mailer/lib/swift_required.php');
-require('application/smarty/Smarty.class.php');
+include_once('defines.php');
 include_once('application/Autoload.php');
 
-// Include 3rParty Libraries
-
 // PHP definitions
-date_default_timezone_set(APP_TIMEZONE);
 ini_set('display_errors', APP_DEBUG);
 
 // Init bootstrap
 try {
 
-    // Build bootstrap and call controller/action
-    $bootstrap = new Core_Bootstrap();
-    $bootstrap->init();
+    // Url object will receive the url and process it to get target controller/action and
+    // values to send to function call
+    $url = new Core_Bootstrap_Url($_GET['url'] ?? '');
 
-} catch (Exception $e) {
+    $launcher = new Core_Bootstrap_Launcher();
+    $launcher->launch($url);
+
+} catch (Throwable $e) {
 
     // Log values to default logger file (APP_LOGFILE)
     Core_Logger::log($e);

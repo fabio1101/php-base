@@ -1,25 +1,11 @@
 <?php
 // Common config between environments
-// Database Configuration
-define('DB_TYPE' , 'mysql');
-define('DB_HOST' , '127.0.0.1');
-
 // Titles and names
-define('APP_NAME' , 'Executive Courier Systems');
-define('APP_NAME_SHORT' , 'ECS');
+define('APP_NAME'       , 'Test');
+define('APP_NAME_SHORT' , 'TEST');
 
 // App Run Mode and paths
-define('DEFAULT_CONTROLLER' , 'Index.php'); // Allways ucfirst
-define('DEFAULT_ACTION'     , 'Index');
-define('DEFAULT_LANGUAGE'   , 'en');
-define('ALLOWED_LANGUAGES'  , '["EN"]'); // JSON format
-define('APP_CONTROLLERS'    , 'controllers');
-define('APP_ACTION'         , 'Action');
-define('APP_LOGFILE'        , 'Logger.txt');
-define('APP_JOBLOGFILE'     , 'JOB_Log.txt');
-define('APP_SQLLOGFILE'     , 'SQL_Log.txt');
-define('APP_DEBUGFILE'      , 'debug.txt');
-define('APP_LAYOUT'         , 'layout');
+define('APP_LAYOUT' , 'layout');
 
 // If the execution is from the app in a browser
 if (EXEC_TYPE == 'WEB') {
@@ -41,54 +27,17 @@ switch (CURRENT_HOST) {
 
     // Development Environment
     case 'dev':
-        // Database Configuration
-        define('DB_NAME' , '');
-        define('DB_USER' , '');
-        define('DB_PASS' , '');
 
-        // Tags to replace in the layout for google tag
-        define('GTAG_HEADER', '');
-        define('GTAG_BODY', '');
+        // Database Configuration
+        define('DB_TYPE' , 'mysql');
+        define('DB_HOST' , '127.0.0.1');
+        define('DB_NAME' , 'test');
+        define('DB_USER' , 'test');
+        define('DB_PASS' , 'test');
 
         // App Run Mode and paths
         define('APP_DEBUG'    , true);
-        define('TERM_DEBUG'   , false);
         define('APP_TIMEZONE' , 'America/New_York');
-
-        // Mail Config
-        define('M_SERVER'       , 'smtp.gmail.com');
-        define('M_USERNAME'     , 'test@test.com');
-        define('M_EMAIL'        , 'test@test.com');
-        define('M_NAME'         , 'Triadify test mailer');
-        define('M_PASSWORD'     , 'pwd');
-        define('M_PORT'         , '465');//'587');
-        define('M_CONN'         , 'ssl');//'tls');
-        break;
-
-    // Production Environment
-    case 'prod':
-        // Database Configuration
-        define('DB_NAME' , '');
-        define('DB_USER' , '');
-        define('DB_PASS' , '');
-
-        // Tags to replace in the layout for google tag
-        define('GTAG_HEADER', '');
-        define('GTAG_BODY', '');
-
-        // App Run Mode and paths
-        define('APP_DEBUG'    , false);
-        define('TERM_DEBUG'   , false);
-        define('APP_TIMEZONE' , 'America/New_York');
-
-        // Mail Config
-        define('M_SERVER'       , 'smtp.gmail.com');
-        define('M_USERNAME'     , 'test@test.com');
-        define('M_EMAIL'        , 'test@test.com');
-        define('M_NAME'         , 'Triadify Inc');
-        define('M_PASSWORD'     , 'pwd');
-        define('M_PORT'         , '465');//'587');
-        define('M_CONN'         , 'ssl');//'tls');
         break;
 
     default:
