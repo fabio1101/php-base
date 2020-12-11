@@ -42,9 +42,9 @@ switch (CURRENT_HOST) {
     // Development Environment
     case 'dev':
         // Database Configuration
-        define('DB_NAME' , 'dev_courier');
-        define('DB_USER' , 'developers');
-        define('DB_PASS' , '44fGtkRf2qXxREh');
+        define('DB_NAME' , '');
+        define('DB_USER' , '');
+        define('DB_PASS' , '');
 
         // Tags to replace in the layout for google tag
         define('GTAG_HEADER', '');
@@ -57,10 +57,10 @@ switch (CURRENT_HOST) {
 
         // Mail Config
         define('M_SERVER'       , 'smtp.gmail.com');
-        define('M_USERNAME'     , 'fabio.valencia@techandservices.net');
-        define('M_EMAIL'        , 'fabio.valencia@techandservices.net');
+        define('M_USERNAME'     , 'test@test.com');
+        define('M_EMAIL'        , 'test@test.com');
         define('M_NAME'         , 'Triadify test mailer');
-        define('M_PASSWORD'     , 'favasu1101');
+        define('M_PASSWORD'     , 'pwd');
         define('M_PORT'         , '465');//'587');
         define('M_CONN'         , 'ssl');//'tls');
         break;
@@ -83,10 +83,10 @@ switch (CURRENT_HOST) {
 
         // Mail Config
         define('M_SERVER'       , 'smtp.gmail.com');
-        define('M_USERNAME'     , 'triadify@triadify.com');
-        define('M_EMAIL'        , 'triadify@triadify.com');
+        define('M_USERNAME'     , 'test@test.com');
+        define('M_EMAIL'        , 'test@test.com');
         define('M_NAME'         , 'Triadify Inc');
-        define('M_PASSWORD'     , 'Triadify2017*');
+        define('M_PASSWORD'     , 'pwd');
         define('M_PORT'         , '465');//'587');
         define('M_CONN'         , 'ssl');//'tls');
         break;
