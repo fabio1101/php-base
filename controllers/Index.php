@@ -13,5 +13,7 @@ class IndexController extends Core_Controller
 
     function IndexAction(): void
     {
+        echo 'Index Controller / Index Action';
+        echo phpinfo();
     }
 }
