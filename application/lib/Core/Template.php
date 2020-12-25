@@ -34,10 +34,8 @@ class Core_Template
         $this->smarty = new Smarty();
 
         // Configure the object with the specific folders
-        $this->smarty->setTemplateDir('public/templates');
-        $this->smarty->setCompileDir('application/smarty/compiled');
-        $this->smarty->setCacheDir('application/smarty/cache');
-        $this->smarty->setConfigDir('application/smarty/configs');
+        $this->smarty->setTemplateDir('public/_tpl');
+        $this->smarty->setCompileDir('application/smarty_compiled');
     }
 
     /**

@@ -1,6 +1,18 @@
-.settings
-.settings/
-.settings/*
-sftp-config.json
-public/Logger.txt
+vendor
+composer.lock
 
+# config file for sftp in SublimeText and VS Code
+sftp-config.json
+.vscode
+
+# Logging files for debug/error reporting
+public/Logger.txt
+public/SQL_Log.txt
+public/JOB_Log.txt
+public/debug.txt
+
+# Adding uploads folder
+uploads
+
+# Adding composer vendor folder
+vendor

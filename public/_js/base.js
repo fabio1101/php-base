@@ -40,12 +40,6 @@ $(document).ready(function() {
     $(".date").datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat : 'yy-mm-dd',
-        dayNamesMin : [ "D", "L", "M", "Mi", "J", "V",
-        "S" ],
-        monthNamesShort : [ "Ene", "Feb", "Mar", "Abr",
-        "May", "Jun", "Jul", "Ago", "Sep",
-        "Oct", "Nov", "Dic" ],
         beforeShow : function() {
             $(".ui-datepicker").css('font-size', 13);
         }

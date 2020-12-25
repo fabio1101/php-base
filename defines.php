@@ -1,8 +1,7 @@
 <?php
 // Common config between environments
 // Titles and names
-define('APP_NAME'       , 'Test');
-define('APP_NAME_SHORT' , 'TEST');
+define('APP_NAME'       , 'Base project');
 
 // App Run Mode and paths
 define('APP_LAYOUT' , 'layout');

@@ -9,9 +9,7 @@ class Core_View
     {
         // If not specified then use the default template setted in config
         $template = ($template) ?: APP_LAYOUT;
-        $html = new Core_CustomCode($template);
-
-        $html->assign('SECTION', $this->SECTION);
+        $html = new Core_Template($template);
 
         // Loop object properties and replace in view if the properties are strings or numbers
         foreach ($this as $var_name => $value) {

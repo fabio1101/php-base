@@ -24,8 +24,7 @@ class Core_Controller
      */
     private function setup()
     {
-        $this->view->APP_NAME = APP_NAME;
-        $this->view->APP_NAME_SHORT = APP_NAME_SHORT;
-        $this->view->YEAR = date('Y');
+        $this->view->app_name = APP_NAME;
+        $this->view->year = date('Y');
     }
 }

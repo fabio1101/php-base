@@ -13,11 +13,6 @@ spl_autoload_register(
         // Explode by _ to get the path to file
         $filepath = explode('_', $class_name);
 
-        // If the class is a specific smarty class the continue with the next autoloader registered
-        if ($filepath[0] == 'Smarty') {
-            return;
-        }
-
         // Base folder path where all classes will be loaded
         $url = 'application/lib/';
 
