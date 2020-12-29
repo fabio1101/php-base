@@ -22,18 +22,8 @@ shift $(($OPTIND - 1))
 #----------------------------------------------------------------------------------------------
 
 # Create smarty directories if they doesnt exists
-mkdir -p application/smarty/compiled application/smarty/cache application/smarty/configs
+mkdir -p application/smarty_compiled
 
 # Change permissions for smarty folders
-chown -Rf $user:$group application/smarty/compiled application/smarty/cache application/smarty/configs
-chmod -Rf 775 application/smarty/compiled application/smarty/cache application/smarty/configs
-
-#----------------------------------------------------------------------------------------------
-# Part 2: Log files creation and permission assignation
-#----------------------------------------------------------------------------------------------
-echo '' > public/Logger.txt
-echo '' > public/JOB_Log.txt
-echo '' > public/SQL_Log.txt
-
-chown -Rf $user:$group public/Logger.txt public/JOB_Log.txt public/SQL_Log.txt
-chmod -Rf 775 public/Logger.txt public/JOB_Log.txt public/SQL_Log.txt
+chown -Rf $user:$group application/smarty_compiled
+chmod -f 775 application/smarty_compiled

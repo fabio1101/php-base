@@ -23,9 +23,6 @@ try {
 
 } catch (Throwable $e) {
 
-    // Log values to default logger file (APP_LOGFILE)
-    // Core_Logger::log($e);
-
     // Stop the app and write a message. If APP_DEBUG is true will write the error, if not will write Error msg.
     die((APP_DEBUG)?
         '<pre>'.$e->getMessage().' - '.$e->getFile().' - '.$e->getLine().'</pre>':

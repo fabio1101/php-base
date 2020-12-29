@@ -24,54 +24,6 @@ trait Helper_Trait
     }
 
     /**
-     * Function to upload image
-     */
-    public function uploadImage()
-    {
-        $session = Core_Session::getInstance();
-
-        // Destination folder
-        $dir = APP_PATH . '/uploads/' . $session->company->getId() . '/';
-
-        // Get the name of the image
-        $name = basename($_FILES['image']['name']);
-
-        // Final path of the file
-        $upload_file = $dir . $name;
-
-        // File extensions allowed by the server
-        $allowed_files = ['image/jpeg','image/png','image/bmp','image/gif'];
-
-        // If the file extension is allowed by the server
-        if (in_array($_FILES['image']['type'], $allowed_files)) {
-
-            // Move the file from the temporary folder to the destination path
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_file)) {
-
-                return ($name);
-        }   else {
-
-                return false;
-            }
-        } else {
-
-            return false;
-        }
-    }
-
-    /**
-     * Function to remove the server image
-     */
-    public function deleteImage($name)
-    {
-        $session = Core_Session::getInstance();
-
-        $dir = APP_PATH . '/uploads/' . $session->company->getId() . '/';
-
-        unlink($dir.$name);
-    }
-
-    /**
      * Function to ofuscate a value (encryption)
      */
     protected function encrypt($to_encrypt)
@@ -129,47 +81,30 @@ trait Helper_Trait
     }
 
     /**
-     * Function to encode string values to csv field format to avoid braking the file.
-     * This will clean chars like " or \n
+     * Private function to convert a camelCase name into a name based on underscores (this_is_an_example)
      */
-    protected function encodeCSVField($string)
+    protected function fromCamelCase($string)
     {
-        if(strpos($string, '"') !== false || strpos($string, "\n") !== false) {
-            $string = str_replace('"', '""', $string);
-            $string = str_replace(PHP_EOL, '', $string);
-        }
-        return '"'.($string).'"';
+        return preg_replace('/(?<=\\w)(?=[A-Z])/',"_$1", trim($string));
     }
 
     /**
-     * Make a redirect from PHP to a specific path, this path can have var values in his structure and
-     * those will be converted to POST to avoid showing those values in the browser url.
-     *
-     * @var $path the url to redirect to. (i.e. /controller/action?var=1)
+     * Private function to convert from unserscore based names into CamelCase
      */
-    protected function redirect($path = '/')
-    {
-        @ob_clean();
+    protected function toCamelCase($text, $lcfirst = false) {
 
-        // Check if the url has vars to send
-        $has_vars = preg_match('/\?/', $path);
+        // clean up the action
+        $text = trim($text);
+        $text = strtolower($text);
+        $text = str_replace('_', ' ', $text);
+        $text = ucwords($text);
+        $text = str_replace(' ', '', $text);
 
-        // If has vars to send then explode by symbol ?, else build and array with dir and empty vars
-        if ($has_vars) {
-            $data = explode('?', $path);
-
-        } else {
-            $data = [$path, ''];
+        // only lower the first word if requested
+        if ($lcfirst) {
+            $text = lcfirst($text);
         }
 
-        $address = $data[0];
-        $vars    = $data[1];
-
-        // Build the js code to redirect
-        $header = '<script src="/public/_jquery/jquery.min.js"></script>'.
-                  '<script src="/public/_js/functions.js"></script>';
-        $code = "<body><script>redirect('$address','$vars');</script></body>";
-        echo $header . $code;
-        die;
+        return $text;
     }
 }

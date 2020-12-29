@@ -17,7 +17,7 @@ if (EXEC_TYPE == 'WEB') {
     // If not from the web but from a job then get the folder path from PWD datapoint and
     // config the path as the production one (Cannot get the web url if from a Job so always
     // point mails to production url)
-    define('APP_URL'  , 'https://courier.triadify.com/'); //http: //*******/
+    define('APP_URL'  , 'https://fabio1101.tk/'); //http: //*******/
     define('APP_PATH' , $_SERVER['PWD']);
 }
 
